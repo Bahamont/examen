@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: parcel-service-postgres
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/huertos}
+    username: ${SPRING_DATASOURCE_USERNAME:huertos}
+    password: ${SPRING_DATASOURCE_PASSWORD:huertos_secret}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  messages:
+    basename: messages
+    encoding: UTF-8
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+
+logging:
+  level:
+    com.huertos: INFO
